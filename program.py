@@ -28,10 +28,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def open_file(self):
         file_path, _ = QFileDialog.getOpenFileName(
             self, "Select Query Audio", "", "Audio Files (*.mp3 *.wav)")
-        if file_path:
-            self.current_file = file_path
-            if self.database_folder:
-                self.find_similar_songs()
+        files = [files]  # Wrap the single file in a list for consistency
+
+        if files and all(files):  # Check if at least one file is selected
+            if len(files) == 1:
+                self.current_file = files[0]
+                if self.database_folder:
+                    self.find_similar_songs()
+            elif len(files) == 2:
+                self.current_file_1 = files[0]
+                self.current_file_2 = files[1]
+                self.compare_files()
+
     
     def select_folder(self):
         dir_path = QFileDialog.getExistingDirectory(
