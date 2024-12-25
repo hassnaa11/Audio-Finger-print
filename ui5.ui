@@ -159,7 +159,7 @@ Border-radius: 10px;</string>
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>../../../Downloads/icons8-sound-100 (1).png</normaloff>../../../Downloads/icons8-sound-100 (1).png</iconset>
+                   <normaloff>icons/icons8-sound-100 (1).png</normaloff>icons/icons8-sound-100 (1).png</iconset>
                  </property>
                 </widget>
                </item>
@@ -326,7 +326,7 @@ Border-radius: 10px;</string>
                       </property>
                       <property name="icon">
                        <iconset>
-                        <normaloff>../../../Downloads/icons8-sound-100 (1).png</normaloff>../../../Downloads/icons8-sound-100 (1).png</iconset>
+                        <normaloff>icons/icons8-sound-100 (1).png</normaloff>icons/icons8-sound-100 (1).png</iconset>
                       </property>
                      </widget>
                     </item>
@@ -417,7 +417,7 @@ Border-radius: 10px;</string>
                       </property>
                       <property name="icon">
                        <iconset>
-                        <normaloff>../../../Downloads/icons8-sound-100 (1).png</normaloff>../../../Downloads/icons8-sound-100 (1).png</iconset>
+                        <normaloff>icons/icons8-sound-100 (1).png</normaloff>icons/icons8-sound-100 (1).png</iconset>
                       </property>
                      </widget>
                     </item>
