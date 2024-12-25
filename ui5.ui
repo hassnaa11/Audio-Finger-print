@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>862</width>
+    <height>904</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(33, 34, 36);
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QFrame" name="main_frame">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>350</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(33, 34, 36);
+
+border-radius: 15px;
+box-shadow : 0px 4px 20px rgba(0, 0, 0, 0.6);
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0">
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="title_label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">Font: bold 15pt “Times New Roman”;
+color: rgb(255, 255, 255);</string>
+               </property>
+               <property name="text">
+                <string>Audio Fingerprinting and Matching</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>0</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <item>
+                <widget class="QPushButton" name="open_button">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>90</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">Font: bold 10pt “Times New Roman”;
+border : 2px solid rgb(241, 167, 92); 
+color: rgb(241, 167, 92);
+background-color: rgb(31, 32, 34);</string>
+                 </property>
+                 <property name="text">
+                  <string>Open</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="open_folder">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>140</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">Font: bold 10pt “Times New Roman”;
+border : 2px solid rgb(241, 167, 92); 
+color: rgb(241, 167, 92);
+background-color: rgb(31, 32, 34);</string>
+                 </property>
+                 <property name="text">
+                  <string>Open Folder</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="sound_button">
+                 <property name="styleSheet">
+                  <string notr="true">border : 2px solid rgb(241, 167, 92); 
+background-color: rgb(31, 32, 34);
+Border-radius: 10px;</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>../../../Downloads/icons8-sound-100 (1).png</normaloff>../../../Downloads/icons8-sound-100 (1).png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QFrame" name="mixer_fram">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>350</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(39, 41, 40);
+border-radius: 15px;
+box-shadow : 0px 4px 20px solid rgba(0, 0, 0, 0.6);</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Sunken</enum>
+               </property>
+               <property name="midLineWidth">
+                <number>6</number>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_4">
+                <item row="0" column="0">
+                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                  <property name="spacing">
+                   <number>13</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>10</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>10</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="mixer_label">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">Font: bold 10pt “Times New Roman”;
+color: rgb(255, 255, 255);</string>
+                    </property>
+                    <property name="text">
+                     <string>Mixer:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_6">
+                    <item>
+                     <widget class="QSlider" name="input1_slider">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>450</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QSlider::groove:horizontal { 
+Border: 1px solid #574d41; 
+Height: 5px; /* Makes the line thin */ 
+Background: #f7d7ab; /* Unfilled portion color */ 
+Margin: 0px; 
+Border-radius: 3px; /* Optional: rounded edges */ 
+} 
+QSlider::handle:horizontal { 
+Background: #f1a75b; /* Handle (square) color */ 
+Border: 1px solid #574d41; 
+Width: 15px; /* Size of the handle */ 
+Height: 15px; /* Make handle square */ 
+Margin: -5px 0px; /* Aligns handle with groove */ 
+Border-radius: 7px; /* Rounded handle */ 
+} 
+QSlider::sub-page:horizontal { 
+Background: #f1a75b; /* Filled portion color */ 
+Border: 1px solid #574d41; 
+Height: 5px; /* Matches the groove height */ 
+Border-radius: 3px; 
+} 
+QSlider::add-page:horizontal { 
+Background: #f7d7ab; /* Unfilled portion color */ 
+Border: 1px solid #574d41; 
+Height: 5px; 
+Border-radius: 3px; 
+}</string>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="input1_label">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">Font: bold 10pt “Times New Roman”;
+color: rgb(255, 255, 255);</string>
+                      </property>
+                      <property name="text">
+                       <string>Input 1</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="input1_sound">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border : 2px solid rgb(241, 167, 92); 
+background-color: rgb(31, 32, 34);
+Border-radius: 10px;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset>
+                        <normaloff>../../../Downloads/icons8-sound-100 (1).png</normaloff>../../../Downloads/icons8-sound-100 (1).png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_7">
+                    <item>
+                     <widget class="QSlider" name="input2_slider">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>450</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QSlider::groove:horizontal { 
+Border: 1px solid #574d41; 
+Height: 5px; /* Makes the line thin */ 
+Background: #f7d7ab; /* Unfilled portion color */ 
+Margin: 0px; 
+Border-radius: 3px; /* Optional: rounded edges */ 
+} 
+QSlider::handle:horizontal { 
+Background: #f1a75b; /* Handle (square) color */ 
+Border: 1px solid #574d41; 
+Width: 15px; /* Size of the handle */ 
+Height: 15px; /* Make handle square */ 
+Margin: -5px 0px; /* Aligns handle with groove */ 
+Border-radius: 7px; /* Rounded handle */ 
+} 
+QSlider::sub-page:horizontal { 
+Background: #f1a75b; /* Filled portion color */ 
+Border: 1px solid #574d41; 
+Height: 5px; /* Matches the groove height */ 
+Border-radius: 3px; 
+} 
+QSlider::add-page:horizontal { 
+Background: #f7d7ab; /* Unfilled portion color */ 
+Border: 1px solid #574d41; 
+Height: 5px; 
+Border-radius: 3px; 
+}</string>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="input2_label">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">Font: bold 10pt “Times New Roman”;
+color: rgb(255, 255, 255);</string>
+                      </property>
+                      <property name="text">
+                       <string>Input 2</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="input1_sound_2">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border : 2px solid rgb(241, 167, 92); 
+background-color: rgb(31, 32, 34);
+Border-radius: 10px;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset>
+                        <normaloff>../../../Downloads/icons8-sound-100 (1).png</normaloff>../../../Downloads/icons8-sound-100 (1).png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Fixed</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_8">
+                    <item>
+                     <spacer name="horizontalSpacer_5">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="mix_button">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>80</width>
+                        <height>35</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">Font: bold 10pt “Times New Roman”;
+color: rgb(241, 167, 92);
+border : 2px solid rgb(241, 167, 92); 
+background-color: rgb(31, 32, 34);</string>
+                      </property>
+                      <property name="text">
+                       <string>Mix</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>100</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="top_matching_label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">Font: bold 10pt “Times New Roman”;
+color: rgb(255, 255, 255);</string>
+               </property>
+               <property name="text">
+                <string>Top Matching Songs:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="table_frame">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>350</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(39, 41, 40);
+border-radius: 15px;
+box-shadow : 0px 4px 20px rgba(0, 0, 0, 0.6);
+border : 2px solid rgb(241, 167, 92); 
+</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Sunken</enum>
+               </property>
+               <property name="midLineWidth">
+                <number>6</number>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_5">
+                <item row="0" column="0">
+                 <layout class="QVBoxLayout" name="verticalLayout_10">
+                  <property name="spacing">
+                   <number>30</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>10</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_20">
+                    <item>
+                     <widget class="QLabel" name="first_song_label">
+                      <property name="styleSheet">
+                       <string notr="true">Font: bold 10pt “Times New Roman”;
+color: rgb(255, 255, 255);</string>
+                      </property>
+                      <property name="text">
+                       <string>1. First Song:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QProgressBar" name="first_progressBar">
+                      <property name="styleSheet">
+                       <string notr="true">QProgressBar {
+ Border: 2px solid #2b2b2b; /* Border color */
+ Border-radius: 10px; /* Rounded corners */
+ Background-color: #5D5141; /* Background for the uncompleted portion */
+ Color: white; /* Text color */
+ Font: bold 12pt “Times New Roman”; /* Font and size */
+ Text-align: right; /* Align text to the right */
+ Padding-right: 50px; /* Move text further outside the bar */
+}
+QProgressBar::chunk {
+ Background-color: #f1c232; /* Filled portion color */
+ Border-radius: 10px; /* Rounded corners for the bar */
+}</string>
+                      </property>
+                      <property name="value">
+                       <number>24</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_21">
+                    <item>
+                     <widget class="QLabel" name="second_song_label">
+                      <property name="styleSheet">
+                       <string notr="true">Font: bold 10pt “Times New Roman”;
+color: rgb(255, 255, 255);
+</string>
+                      </property>
+                      <property name="text">
+                       <string>2. Second Song:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QProgressBar" name="second_progressBar">
+                      <property name="styleSheet">
+                       <string notr="true">QProgressBar {
+ Border: 2px solid #2b2b2b; /* Border color */
+ Border-radius: 10px; /* Rounded corners */
+ Background-color: #5D5141; /* Background for the uncompleted portion */
+ Color: white; /* Text color */
+ Font: bold 12pt “Times New Roman”; /* Font and size */
+ Text-align: right; /* Align text to the right */
+ Padding-right: 50px; /* Move text further outside the bar */
+}
+QProgressBar::chunk {
+ Background-color: #F6D7A8; /* Filled portion color */
+ Border-radius: 10px; /* Rounded corners for the bar */
+}</string>
+                      </property>
+                      <property name="value">
+                       <number>24</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_22">
+                    <item>
+                     <widget class="QLabel" name="third_song_label">
+                      <property name="styleSheet">
+                       <string notr="true">Font: bold 10pt “Times New Roman”;
+color: rgb(255, 255, 255);</string>
+                      </property>
+                      <property name="text">
+                       <string>3. Third Song:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QProgressBar" name="third_progressBar">
+                      <property name="styleSheet">
+                       <string notr="true">QProgressBar {
+ Border: 2px solid #2b2b2b; /* Border color */
+ Border-radius: 10px; /* Rounded corners */
+ Background-color: #5D5141; /* Background for the uncompleted portion */
+ Color: white; /* Text color */
+ Font: bold 12pt “Times New Roman”; /* Font and size */
+ Text-align: right; /* Align text to the right */
+ Padding-right: 50px; /* Move text further outside the bar */
+}
+QProgressBar::chunk {
+ Background-color: #E8B276; /* Filled portion color */
+ Border-radius: 10px; /* Rounded corners for the bar */
+}</string>
+                      </property>
+                      <property name="value">
+                       <number>24</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_23">
+                    <item>
+                     <widget class="QLabel" name="fourth_song_label">
+                      <property name="styleSheet">
+                       <string notr="true">Font: bold 10pt “Times New Roman”;
+color: rgb(255, 255, 255);</string>
+                      </property>
+                      <property name="text">
+                       <string>4. Fourth Song:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QProgressBar" name="fourth_progressBar">
+                      <property name="styleSheet">
+                       <string notr="true">QProgressBar {
+ Border: 2px solid #2b2b2b; /* Border color */
+ Border-radius: 10px; /* Rounded corners */
+ Background-color: #5D5141; /* Background for the uncompleted portion */
+ Color: white; /* Text color */
+ Font: bold 12pt “Times New Roman”; /* Font and size */
+ Text-align: right; /* Align text to the right */
+ Padding-right: 50px; /* Move text further outside the bar */
+}
+QProgressBar::chunk {
+ Background-color: #FAD199; /* Filled portion color */
+ Border-radius: 10px; /* Rounded corners for the bar */
+}</string>
+                      </property>
+                      <property name="value">
+                       <number>24</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_24">
+                    <item>
+                     <widget class="QLabel" name="fifth_song_label">
+                      <property name="styleSheet">
+                       <string notr="true">Font: bold 10pt “Times New Roman”;
+color: rgb(255, 255, 255);</string>
+                      </property>
+                      <property name="text">
+                       <string>5. Fifth Song:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QProgressBar" name="fifth_progressBar">
+                      <property name="styleSheet">
+                       <string notr="true">QProgressBar {
+ Border: 2px solid #2b2b2b; /* Border color */
+ Border-radius: 10px; /* Rounded corners */
+ Background-color: #5D5141; /* Background for the uncompleted portion */
+ Color: white; /* Text color */
+ Font: bold 12pt “Times New Roman”; /* Font and size */
+ Text-align: right; /* Align text to the right */
+ Padding-right: 50px; /* Move text further outside the bar */
+}
+QProgressBar::chunk {
+ Background-color: #ECA25B; /* Filled portion color */
+ Border-radius: 10px; /* Rounded corners for the bar */
+}</string>
+                      </property>
+                      <property name="value">
+                       <number>24</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>862</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
