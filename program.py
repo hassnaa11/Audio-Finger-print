@@ -68,6 +68,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             if self.database_folder:
                 self.find_similar_songs()
         else:  # Even number of files opened
+            self.input2 = self.current_file
             self.previous_file = self.current_file  # Set the last opened file
             self.current_file = file_path  # Update the current file
             print(f"Even inputs: Mixing {self.previous_file} and {self.current_file}")
