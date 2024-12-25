@@ -593,6 +593,28 @@ color: rgb(255, 255, 255);</string>
                      </widget>
                     </item>
                     <item>
+                     <widget class="QPushButton" name="output_sound">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border : 2px solid rgb(241, 167, 92); 
+background-color: rgb(31, 32, 34);
+Border-radius: 10px;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset>
+                        <normaloff>icons/icons8-sound-100 (1).png</normaloff>icons/icons8-sound-100 (1).png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <widget class="QProgressBar" name="first_progressBar">
                       <property name="styleSheet">
                        <string notr="true">QProgressBar {
@@ -627,6 +649,28 @@ color: rgb(255, 255, 255);
                       </property>
                       <property name="text">
                        <string>2. Second Song:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="output_sound_2">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border : 2px solid rgb(241, 167, 92); 
+background-color: rgb(31, 32, 34);
+Border-radius: 10px;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset>
+                        <normaloff>icons/icons8-sound-100 (1).png</normaloff>icons/icons8-sound-100 (1).png</iconset>
                       </property>
                      </widget>
                     </item>
@@ -668,6 +712,28 @@ color: rgb(255, 255, 255);</string>
                      </widget>
                     </item>
                     <item>
+                     <widget class="QPushButton" name="output_sound_3">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border : 2px solid rgb(241, 167, 92); 
+background-color: rgb(31, 32, 34);
+Border-radius: 10px;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset>
+                        <normaloff>icons/icons8-sound-100 (1).png</normaloff>icons/icons8-sound-100 (1).png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <widget class="QProgressBar" name="third_progressBar">
                       <property name="styleSheet">
                        <string notr="true">QProgressBar {
@@ -705,6 +771,28 @@ color: rgb(255, 255, 255);</string>
                      </widget>
                     </item>
                     <item>
+                     <widget class="QPushButton" name="output_sound_4">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border : 2px solid rgb(241, 167, 92); 
+background-color: rgb(31, 32, 34);
+Border-radius: 10px;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset>
+                        <normaloff>icons/icons8-sound-100 (1).png</normaloff>icons/icons8-sound-100 (1).png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <widget class="QProgressBar" name="fourth_progressBar">
                       <property name="styleSheet">
                        <string notr="true">QProgressBar {
@@ -738,6 +826,28 @@ color: rgb(255, 255, 255);</string>
                       </property>
                       <property name="text">
                        <string>5. Fifth Song:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="output_sound_5">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border : 2px solid rgb(241, 167, 92); 
+background-color: rgb(31, 32, 34);
+Border-radius: 10px;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset>
+                        <normaloff>icons/icons8-sound-100 (1).png</normaloff>icons/icons8-sound-100 (1).png</iconset>
                       </property>
                      </widget>
                     </item>
