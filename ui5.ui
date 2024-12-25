@@ -149,6 +149,9 @@ background-color: rgb(31, 32, 34);</string>
                </item>
                <item>
                 <widget class="QPushButton" name="sound_button">
+                 <property name="cursor">
+                  <cursorShape>OpenHandCursor</cursorShape>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">border : 2px solid rgb(241, 167, 92); 
 background-color: rgb(31, 32, 34);
@@ -286,6 +289,9 @@ Height: 5px;
 Border-radius: 3px; 
 }</string>
                       </property>
+                      <property name="value">
+                       <number>50</number>
+                      </property>
                       <property name="orientation">
                        <enum>Qt::Horizontal</enum>
                       </property>
@@ -376,6 +382,15 @@ Border: 1px solid #574d41;
 Height: 5px; 
 Border-radius: 3px; 
 }</string>
+                      </property>
+                      <property name="minimum">
+                       <number>1</number>
+                      </property>
+                      <property name="maximum">
+                       <number>100</number>
+                      </property>
+                      <property name="value">
+                       <number>50</number>
                       </property>
                       <property name="orientation">
                        <enum>Qt::Horizontal</enum>
