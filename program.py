@@ -48,25 +48,49 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.paused_sound = None
         
         self.fingerprinter = AudioFingerprint()
+        self.file_count = 0  # To track the number of files opened
+        self.previous_file = None
+        self.input2 = None
         
     
     def open_file(self):
         file_path, _ = QFileDialog.getOpenFileName(
             self, "Select Query Audio", "", "Audio Files (*.mp3 *.wav)")
         
-        print(file_path)
-        if self.current_file:
-            self.second_file = file_path
-            self.mix_files(self.first_file, self.second_file)
-            self.mix_button.clicked.connect(lambda: self.mix_files(self.first_file, self.second_file))
-            if self.database_folder:
-                self.find_similar_songs()
-            
-        elif file_path:
+        if not file_path:
+            return
+
+        self.file_count += 1
+        if self.file_count % 2 == 1:  # Odd number of files opened
             self.current_file = file_path
-            self.first_file = self.current_file
+            self.previous_file = None  # Reset previous file since we're not mixing
+            print(f"Odd input: {self.current_file}")
             if self.database_folder:
                 self.find_similar_songs()
+        else:  # Even number of files opened
+            self.previous_file = self.current_file  # Set the last opened file
+            self.current_file = file_path  # Update the current file
+            print(f"Even inputs: Mixing {self.previous_file} and {self.current_file}")
+            self.input2 = self.current_file
+            if self.previous_file and self.current_file:
+                self.mix_files(self.previous_file, self.current_file)
+                self.mix_button.clicked.connect(lambda: self.mix_files(self.previous_file, self.current_file))
+                if self.database_folder:
+                    self.find_similar_songs()
+        
+        # print(file_path)
+        # if self.current_file:
+        #     self.second_file = file_path
+        #     self.mix_files(self.first_file, self.second_file)
+        #     self.mix_button.clicked.connect(lambda: self.mix_files(self.first_file, self.second_file))
+        #     if self.database_folder:
+        #         self.find_similar_songs()
+            
+        # elif file_path:
+        #     self.current_file = file_path
+        #     self.first_file = self.current_file
+        #     if self.database_folder:
+        #         self.find_similar_songs()
     
     def select_folder(self):
         dir_path = QFileDialog.getExistingDirectory(
@@ -195,12 +219,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             
         elif button == "input1_sound":
             self.player.stop()
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.first_file)))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.previous_file)))
             self.player.play()    
             
         elif button == "input2_sound":
             self.player.stop()
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.second_file)))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.input2)))
             self.player.play()     
             
         elif self.match_songs[button]:
