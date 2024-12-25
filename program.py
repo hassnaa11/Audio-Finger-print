@@ -11,6 +11,7 @@ import numpy as np
 from scipy.io import wavfile
 import tempfile
 import os
+from PyQt5.QtCore import QTimer
 # Load ui
 Ui_MainWindow, QtBaseClass = uic.loadUiType("ui5.ui")
 from finger_print import AudioFingerprint 
@@ -36,16 +37,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.input1_sound.clicked.connect(lambda: self.play_sound("input1_sound"))
         self.input1_sound_2.clicked.connect(lambda: self.play_sound("input2_sound"))
         
-        # self.first_sound.clicked.connect(lambda: self.play_sound(0))
-        # self.input1_sound_2.clicked.connect(lambda: self.play_sound(1))
-        # self.input1_sound_2.clicked.connect(lambda: self.play_sound(2))
-        # self.input1_sound_2.clicked.connect(lambda: self.play_sound(3))
-        # self.input1_sound_2.clicked.connect(lambda: self.play_sound(4))
-        # self.input1_sound_2.clicked.connect(lambda: self.play_sound(5))
-
-        # self.input1_slider.valueChanged.connect(lambda: self.mix_files(self.current_file, self.second_file))
-        # self.input2_slider.valueChanged.connect(lambda: self.mix_files(self.current_file, self.second_file))
-        
+        self.output_sound_1.clicked.connect(lambda: self.play_sound(0))
+        self.output_sound_2.clicked.connect(lambda: self.play_sound(1))
+        self.output_sound_3.clicked.connect(lambda: self.play_sound(2))
+        self.output_sound_4.clicked.connect(lambda: self.play_sound(3))
+        self.output_sound_5.clicked.connect(lambda: self.play_sound(4))
         
         self.player = QMediaPlayer()
         self.played_sound = None
@@ -168,9 +164,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         print("Mixed data min:", np.min(np.abs(mixed_data)))
 
         if self.played_sound == "loaded_file":
+            self.played_sound = None
+            self.paused_sound = None
             self.player.stop()
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.current_file)))
-            self.player.play()  
+            self.player = QMediaPlayer()
+            self.play_sound("loaded_file")
 
 
     def play_sound(self, button):
@@ -206,8 +204,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.player.play()     
             
         elif self.match_songs[button]:
+            output_path = os.path.join(self.database_folder, self.match_songs[button])
+            print("self.match_songs[button]: ", output_path)
             self.player.stop()
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.match_songs[button])))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(output_path)))
             self.player.play()   
             
         self.played_sound = button    
