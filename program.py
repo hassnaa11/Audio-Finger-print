@@ -49,6 +49,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.paused_sound = None
         
         self.fingerprinter = AudioFingerprint()
+        self.file_count = 0  # To track the number of files opened
+        self.previous_file = None
+        self.input2 = None
         
     
     def open_file(self):
@@ -216,12 +219,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             
         elif button == "input1_sound":
             self.player.stop()
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.first_file)))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.previous_file)))
             self.player.play()    
             
         elif button == "input2_sound":
             self.player.stop()
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.second_file)))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.input2)))
             self.player.play()     
             
         elif self.match_songs[button]:
