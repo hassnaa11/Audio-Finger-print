@@ -193,6 +193,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.player.stop()
             self.player = QMediaPlayer()
             self.play_sound("loaded_file")
+        
+        self.find_similar_songs()    
 
 
     def play_sound(self, button):
@@ -219,12 +221,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             
         elif button == "input1_sound":
             self.player.stop()
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.previous_file)))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.first_file)))
             self.player.play()    
             
         elif button == "input2_sound":
             self.player.stop()
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.input2)))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.second_file)))
             self.player.play()     
             
         elif self.match_songs[button]:
