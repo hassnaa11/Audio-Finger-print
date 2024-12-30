@@ -10,16 +10,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 class AudioFingerprint:
     def __init__(self):
         self.features = {}
-        self.database_path = "fingerprints_db.json"
+        self.database_path = "database.json"
         
     def extract_features(self, audio_data, sr):
-        """Extract key audio features from the spectrogram"""
         features = {}
         
-        # 1. Compute mel-spectrogram
-        mel_spec = librosa.feature.melspectrogram(y=audio_data, sr=sr, 
+        # 1. Compute mel-spectrogram: Converts the waveform into a time-frequency representation
+        mel_spectrogram = librosa.feature.melspectrogram(y=audio_data, sr=sr, 
                                                 n_mels=128, fmax=8000)
-        mel_spec_db = librosa.power_to_db(mel_spec, ref=np.max)
+        mel_spectrogram_db = librosa.power_to_db(mel_spectrogram, ref=np.max)
         
         # 2. Extract spectral centroid
         spectral_centroids = librosa.feature.spectral_centroid(y=audio_data, sr=sr)[0]
@@ -39,18 +38,17 @@ class AudioFingerprint:
         
         # 6. Find peaks in mel spectrogram
         peaks = []
-        for i in range(mel_spec_db.shape[0]):
-            peak_indices, _ = find_peaks(mel_spec_db[i, :])
+        for i in range(mel_spectrogram_db.shape[0]):
+            peak_indices, _ = find_peaks(mel_spectrogram_db[i, :])
             if len(peak_indices) > 0:
                 peaks.extend([(int(i), int(j)) for j in peak_indices])
         features['peak_positions'] = peaks[:100]
         
         return features
     
-    def compute_perceptual_hash(self, mel_spec_db):
-        """Compute perceptual hash from mel spectrogram"""
-        img_data = ((mel_spec_db - mel_spec_db.min()) * 255 / 
-                   (mel_spec_db.max() - mel_spec_db.min())).astype(np.uint8)
+    def compute_perceptual_hash(self, mel_spectrogram_db):
+        img_data = ((mel_spectrogram_db - mel_spectrogram_db.min()) * 255 / 
+                   (mel_spectrogram_db.max() - mel_spectrogram_db.min())).astype(np.uint8)
         img = Image.fromarray(img_data)
         
         return {
@@ -61,7 +59,6 @@ class AudioFingerprint:
         }
     
     def generate_fingerprint(self, audio_path):
-        """Generate complete fingerprint for an audio file"""
         try:
             audio_data, sr = librosa.load(audio_path)
             
@@ -70,10 +67,10 @@ class AudioFingerprint:
             
             # Compute mel spectrogram for hashing
             mel_spec = librosa.feature.melspectrogram(y=audio_data, sr=sr)
-            mel_spec_db = librosa.power_to_db(mel_spec, ref=np.max)
+            mel_spectrogram_db = librosa.power_to_db(mel_spec, ref=np.max)
             
             # Compute perceptual hashes
-            hashes = self.compute_perceptual_hash(mel_spec_db)
+            hashes = self.compute_perceptual_hash(mel_spectrogram_db)
             
             return {
                 'features': features,
@@ -84,7 +81,6 @@ class AudioFingerprint:
             return None
     
     def save_fingerprint(self, audio_path, fingerprint):
-        """Save fingerprint to database"""
         try:
             with open(self.database_path, 'r') as f:
                 database = json.load(f)
@@ -97,7 +93,6 @@ class AudioFingerprint:
             json.dump(database, f)
     
     def compute_similarity(self, fingerprint1, fingerprint2):
-        """Compute similarity between two fingerprints"""
         try:
             # Compare MFCCs
             mfcc_sim = cosine_similarity(

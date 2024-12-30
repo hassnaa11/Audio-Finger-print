@@ -49,9 +49,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.paused_sound = None
         
         self.fingerprinter = AudioFingerprint()
-        self.file_count = 0  # To track the number of files opened
-        self.previous_file = None
-        self.input2 = None
         
     
     def open_file(self):
@@ -80,6 +77,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if dir_path:
             self.database_folder = dir_path
             self.extract_finger_print()
+            
+            
     def extract_finger_print(self):
         songs = [f for f in os.listdir(self.database_folder)
                 if f.lower().endswith(('.mp3', '.wav'))]
@@ -91,8 +90,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 # Include the song name in the fingerprint dictionary
                 song_fingerprint["name"] = song
                 self.songs_fingerprint.append(song_fingerprint)
- 
-
                     
                 
     def find_similar_songs(self):
@@ -139,11 +136,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Read the two wav files
         rate1, data1 = wavfile.read(file1)
         rate2, data2 = wavfile.read(file2)
+        print("rate: ", rate1,"  rate2: ", rate2) 
 
         # Ensure the sampling rates match
         if rate1 != rate2:
-            rate1 = min(rate1, rate2)
-            # raise ValueError("Sampling rates of the two .wav files must match")
+            print("Sampling rates of the two files doesn't match")
+            rate1 = max(rate1, rate2)
+            # raise ValueError("Sampling rates of the two files must match")
 
         # Ensure the data lengths match by trimming or padding
         min_length = min(len(data1), len(data2))

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>794</width>
-    <height>906</height>
+    <width>991</width>
+    <height>773</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,10 +18,10 @@
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout_6">
+      <item row="0" column="0">
        <widget class="QFrame" name="main_frame">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -49,6 +49,12 @@ box-shadow : 0px 4px 20px rgba(0, 0, 0, 0.6);
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QGridLayout" name="gridLayout_3">
+         <property name="topMargin">
+          <number>11</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item row="0" column="0">
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
@@ -263,6 +269,19 @@ color: rgb(255, 255, 255);</string>
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_6">
                     <item>
+                     <spacer name="horizontalSpacer_6">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
                      <widget class="QSlider" name="input1_slider">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -352,10 +371,36 @@ Border-radius: 10px;</string>
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <spacer name="horizontalSpacer">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
                    </layout>
                   </item>
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_7">
+                    <item>
+                     <spacer name="horizontalSpacer_7">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
                     <item>
                      <widget class="QSlider" name="input2_slider">
                       <property name="sizePolicy">
@@ -452,6 +497,19 @@ Border-radius: 10px;</string>
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <spacer name="horizontalSpacer_3">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
                    </layout>
                   </item>
                   <item>
@@ -510,6 +568,19 @@ background-color: rgb(31, 32, 34);</string>
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <spacer name="horizontalSpacer_4">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
                    </layout>
                   </item>
                  </layout>
@@ -523,12 +594,12 @@ background-color: rgb(31, 32, 34);</string>
                 <enum>Qt::Vertical</enum>
                </property>
                <property name="sizeType">
-                <enum>QSizePolicy::Expanding</enum>
+                <enum>QSizePolicy::Fixed</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
                  <width>20</width>
-                 <height>50</height>
+                 <height>40</height>
                 </size>
                </property>
               </spacer>
@@ -553,7 +624,7 @@ color: rgb(255, 255, 255);</string>
              <item>
               <widget class="QFrame" name="table_frame">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -580,25 +651,22 @@ border : 2px solid rgb(241, 167, 92);
                <property name="midLineWidth">
                 <number>6</number>
                </property>
-               <layout class="QGridLayout" name="gridLayout_5">
+               <layout class="QGridLayout" name="gridLayout_2">
                 <item row="0" column="0">
-                 <layout class="QVBoxLayout" name="verticalLayout_10">
+                 <layout class="QVBoxLayout" name="verticalLayout_11">
                   <property name="spacing">
-                   <number>30</number>
-                  </property>
-                  <property name="leftMargin">
-                   <number>10</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
+                   <number>20</number>
                   </property>
                   <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_20">
+                   <layout class="QHBoxLayout" name="horizontalLayout_11">
                     <item>
                      <widget class="QLabel" name="first_song_label">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>35</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">Font: bold 10pt “Times New Roman”;
 color: rgb(255, 255, 255);</string>
@@ -616,6 +684,12 @@ color: rgb(255, 255, 255);</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>35</width>
+                        <height>35</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">border : 2px solid rgb(241, 167, 92); 
 background-color: rgb(31, 32, 34);
@@ -630,34 +704,18 @@ Border-radius: 10px;</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QProgressBar" name="first_progressBar">
-                      <property name="styleSheet">
-                       <string notr="true">QProgressBar {
- Border: 2px solid #2b2b2b; /* Border color */
- Border-radius: 10px; /* Rounded corners */
- Background-color: #5D5141; /* Background for the uncompleted portion */
- Color: white; /* Text color */
- Font: bold 12pt “Times New Roman”; /* Font and size */
- Text-align: right; /* Align text to the right */
- Padding-right: 50px; /* Move text further outside the bar */
-}
-QProgressBar::chunk {
- Background-color: #f1c232; /* Filled portion color */
- Border-radius: 10px; /* Rounded corners for the bar */
-}</string>
-                      </property>
-                      <property name="value">
-                       <number>24</number>
-                      </property>
-                     </widget>
-                    </item>
                    </layout>
                   </item>
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_21">
                     <item>
                      <widget class="QLabel" name="second_song_label">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>35</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">Font: bold 10pt “Times New Roman”;
 color: rgb(255, 255, 255);
@@ -676,6 +734,12 @@ color: rgb(255, 255, 255);
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>35</width>
+                        <height>35</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">border : 2px solid rgb(241, 167, 92); 
 background-color: rgb(31, 32, 34);
@@ -690,34 +754,18 @@ Border-radius: 10px;</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QProgressBar" name="second_progressBar">
-                      <property name="styleSheet">
-                       <string notr="true">QProgressBar {
- Border: 2px solid #2b2b2b; /* Border color */
- Border-radius: 10px; /* Rounded corners */
- Background-color: #5D5141; /* Background for the uncompleted portion */
- Color: white; /* Text color */
- Font: bold 12pt “Times New Roman”; /* Font and size */
- Text-align: right; /* Align text to the right */
- Padding-right: 50px; /* Move text further outside the bar */
-}
-QProgressBar::chunk {
- Background-color: #F6D7A8; /* Filled portion color */
- Border-radius: 10px; /* Rounded corners for the bar */
-}</string>
-                      </property>
-                      <property name="value">
-                       <number>24</number>
-                      </property>
-                     </widget>
-                    </item>
                    </layout>
                   </item>
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_22">
                     <item>
                      <widget class="QLabel" name="third_song_label">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>35</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">Font: bold 10pt “Times New Roman”;
 color: rgb(255, 255, 255);</string>
@@ -735,6 +783,12 @@ color: rgb(255, 255, 255);</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>35</width>
+                        <height>35</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">border : 2px solid rgb(241, 167, 92); 
 background-color: rgb(31, 32, 34);
@@ -749,34 +803,18 @@ Border-radius: 10px;</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QProgressBar" name="third_progressBar">
-                      <property name="styleSheet">
-                       <string notr="true">QProgressBar {
- Border: 2px solid #2b2b2b; /* Border color */
- Border-radius: 10px; /* Rounded corners */
- Background-color: #5D5141; /* Background for the uncompleted portion */
- Color: white; /* Text color */
- Font: bold 12pt “Times New Roman”; /* Font and size */
- Text-align: right; /* Align text to the right */
- Padding-right: 50px; /* Move text further outside the bar */
-}
-QProgressBar::chunk {
- Background-color: #E8B276; /* Filled portion color */
- Border-radius: 10px; /* Rounded corners for the bar */
-}</string>
-                      </property>
-                      <property name="value">
-                       <number>24</number>
-                      </property>
-                     </widget>
-                    </item>
                    </layout>
                   </item>
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_23">
                     <item>
                      <widget class="QLabel" name="fourth_song_label">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>35</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">Font: bold 10pt “Times New Roman”;
 color: rgb(255, 255, 255);</string>
@@ -794,6 +832,12 @@ color: rgb(255, 255, 255);</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>35</width>
+                        <height>35</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">border : 2px solid rgb(241, 167, 92); 
 background-color: rgb(31, 32, 34);
@@ -808,34 +852,18 @@ Border-radius: 10px;</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QProgressBar" name="fourth_progressBar">
-                      <property name="styleSheet">
-                       <string notr="true">QProgressBar {
- Border: 2px solid #2b2b2b; /* Border color */
- Border-radius: 10px; /* Rounded corners */
- Background-color: #5D5141; /* Background for the uncompleted portion */
- Color: white; /* Text color */
- Font: bold 12pt “Times New Roman”; /* Font and size */
- Text-align: right; /* Align text to the right */
- Padding-right: 50px; /* Move text further outside the bar */
-}
-QProgressBar::chunk {
- Background-color: #FAD199; /* Filled portion color */
- Border-radius: 10px; /* Rounded corners for the bar */
-}</string>
-                      </property>
-                      <property name="value">
-                       <number>24</number>
-                      </property>
-                     </widget>
-                    </item>
                    </layout>
                   </item>
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_24">
                     <item>
                      <widget class="QLabel" name="fifth_song_label">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>35</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">Font: bold 10pt “Times New Roman”;
 color: rgb(255, 255, 255);</string>
@@ -853,6 +881,12 @@ color: rgb(255, 255, 255);</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>35</width>
+                        <height>35</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">border : 2px solid rgb(241, 167, 92); 
 background-color: rgb(31, 32, 34);
@@ -867,10 +901,137 @@ Border-radius: 10px;</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QProgressBar" name="fifth_progressBar">
-                      <property name="styleSheet">
-                       <string notr="true">QProgressBar {
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item row="0" column="1">
+                 <layout class="QVBoxLayout" name="verticalLayout_10">
+                  <property name="spacing">
+                   <number>20</number>
+                  </property>
+                  <item>
+                   <widget class="QProgressBar" name="first_progressBar">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QProgressBar {
+ Border: 2px solid #2b2b2b; /* Border color */
+ Border-radius: 10px; /* Rounded corners */
+ Background-color: #5D5141; /* Background for the uncompleted portion */
+ Color: white; /* Text color */
+ Font: bold 12pt “Times New Roman”; /* Font and size */
+ Text-align: right; /* Align text to the right */
+ Padding-right: 50px; /* Move text further outside the bar */
+}
+QProgressBar::chunk {
+ Background-color: #f1c232; /* Filled portion color */
+ Border-radius: 10px; /* Rounded corners for the bar */
+}</string>
+                    </property>
+                    <property name="value">
+                     <number>24</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QProgressBar" name="second_progressBar">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QProgressBar {
+ Border: 2px solid #2b2b2b; /* Border color */
+ Border-radius: 10px; /* Rounded corners */
+ Background-color: #5D5141; /* Background for the uncompleted portion */
+ Color: white; /* Text color */
+ Font: bold 12pt “Times New Roman”; /* Font and size */
+ Text-align: right; /* Align text to the right */
+ Padding-right: 50px; /* Move text further outside the bar */
+}
+QProgressBar::chunk {
+ Background-color: #F6D7A8; /* Filled portion color */
+ Border-radius: 10px; /* Rounded corners for the bar */
+}</string>
+                    </property>
+                    <property name="value">
+                     <number>24</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QProgressBar" name="third_progressBar">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QProgressBar {
+ Border: 2px solid #2b2b2b; /* Border color */
+ Border-radius: 10px; /* Rounded corners */
+ Background-color: #5D5141; /* Background for the uncompleted portion */
+ Color: white; /* Text color */
+ Font: bold 12pt “Times New Roman”; /* Font and size */
+ Text-align: right; /* Align text to the right */
+ Padding-right: 50px; /* Move text further outside the bar */
+}
+QProgressBar::chunk {
+ Background-color: #E8B276; /* Filled portion color */
+ Border-radius: 10px; /* Rounded corners for the bar */
+}</string>
+                    </property>
+                    <property name="value">
+                     <number>24</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QProgressBar" name="fourth_progressBar">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QProgressBar {
+ Border: 2px solid #2b2b2b; /* Border color */
+ Border-radius: 10px; /* Rounded corners */
+ Background-color: #5D5141; /* Background for the uncompleted portion */
+ Color: white; /* Text color */
+ Font: bold 12pt “Times New Roman”; /* Font and size */
+ Text-align: right; /* Align text to the right */
+ Padding-right: 50px; /* Move text further outside the bar */
+}
+QProgressBar::chunk {
+ Background-color: #FAD199; /* Filled portion color */
+ Border-radius: 10px; /* Rounded corners for the bar */
+}</string>
+                    </property>
+                    <property name="value">
+                     <number>24</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QProgressBar" name="fifth_progressBar">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QProgressBar {
  Border: 2px solid #2b2b2b; /* Border color */
  Border-radius: 10px; /* Rounded corners */
  Background-color: #5D5141; /* Background for the uncompleted portion */
@@ -883,13 +1044,11 @@ QProgressBar::chunk {
  Background-color: #ECA25B; /* Filled portion color */
  Border-radius: 10px; /* Rounded corners for the bar */
 }</string>
-                      </property>
-                      <property name="value">
-                       <number>24</number>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
+                    </property>
+                    <property name="value">
+                     <number>24</number>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -906,16 +1065,6 @@ QProgressBar::chunk {
      </layout>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>794</width>
-     <height>26</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
