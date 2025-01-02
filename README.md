@@ -56,21 +56,21 @@ This project implements a Shazam-like application for signal fingerprinting and 
         <img src="https://github.com/hassnaa11.png?size=100" style="width:80%;" alt="hassnaa11"/>
       </a>
       <br />
-      <a href="https://github.com/hassnaa11">hassnaa11</a>
+      <a href="https://github.com/hassnaa11">Hassnaa Hossam</a>
     </td>
     <td align="center" width="20%">
       <a href="https://github.com/shahdragab89">
         <img src="https://github.com/shahdragab89.png?size=100" style="width:80%;" alt="shahdragab89"/>
       </a>
       <br />
-      <a href="https://github.com/shahdragab89">shahdragab89</a>
+      <a href="https://github.com/shahdragab89">Shahd Ragab</a>
     </td>
    <td align="center" width="20%">
       <a href="https://github.com/Emaaanabdelazeemm">
         <img src="https://github.com/Emaaanabdelazeemm.png?size=100" style="width:80%;" alt="Emaaanabdelazeemm"/>
       </a>
       <br />
-      <a href="https://github.com/Emaaanabdelazeemm">Emaaanabdelazeemm</a>
+      <a href="https://github.com/Emaaanabdelazeemm">Eman Abdelazeem</a>
     </td>
    <td align="center" width="20%">
       <a href="https://github.com/Ayat-Tarek">
