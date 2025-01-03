@@ -78,20 +78,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 self.mix_button.clicked.connect(lambda: self.mix_files(self.previous_file, self.current_file))
                 if self.database_folder:
                     self.find_similar_songs()
-        
-        # print(file_path)
-        # if self.current_file:
-        #     self.second_file = file_path
-        #     self.mix_files(self.first_file, self.second_file)
-        #     self.mix_button.clicked.connect(lambda: self.mix_files(self.first_file, self.second_file))
-        #     if self.database_folder:
-        #         self.find_similar_songs()
-            
-        # elif file_path:
-        #     self.current_file = file_path
-        #     self.first_file = self.current_file
-        #     if self.database_folder:
-        #         self.find_similar_songs()
     
     def select_folder(self):
         dir_path = QFileDialog.getExistingDirectory(
