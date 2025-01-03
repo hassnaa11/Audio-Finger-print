@@ -72,6 +72,8 @@ class AudioFingerprint:
             # Compute perceptual hashes
             hashes = self.compute_perceptual_hash(mel_spectrogram_db)
             
+            self.save_fingerprint(audio_path, features)
+            
             return {
                 'features': features,
                 'hashes': hashes
