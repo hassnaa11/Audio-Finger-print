@@ -36,6 +36,11 @@ class AudioFingerprint:
         chromagram = librosa.feature.chroma_stft(y=audio_data, sr=sr)
         features['chroma_mean'] = np.mean(chromagram, axis=1).tolist()
         
+        # 7. Extract harmonic and percussive components
+        y_harmonic, y_percussive = librosa.effects.hpss(audio_data)
+        features['harmonic_ratio'] = float(np.mean(np.abs(y_harmonic)) / np.mean(np.abs(audio_data)))
+        features['percussive_ratio'] = float(np.mean(np.abs(y_percussive)) / np.mean(np.abs(audio_data)))
+        
         # 6. Find peaks in mel spectrogram
         peaks = []
         for i in range(mel_spectrogram_db.shape[0]):
@@ -123,6 +128,15 @@ class AudioFingerprint:
             centroid_sim = 1 - (centroid_diff / max_centroid if max_centroid > 0 else 0)
             rolloff_sim = 1 - (rolloff_diff / max_rolloff if max_rolloff > 0 else 0)
             
+            # 6. Harmonic/Percussive similarity
+            harmonic_sim = 1 - abs(
+                fingerprint1['features']['harmonic_ratio'] - fingerprint2['features']['harmonic_ratio']
+            )
+            percussive_sim = 1 - abs(
+                fingerprint1['features']['percussive_ratio'] - fingerprint2['features']['percussive_ratio']
+            )
+            harmonic_percussive_sim = (harmonic_sim + percussive_sim) / 2
+        
             # Compare perceptual hashes
             hash_sim = sum(h1 == h2 for h1, h2 in zip(
                 fingerprint1['hashes'].values(), 
@@ -134,6 +148,7 @@ class AudioFingerprint:
                               0.2 * chroma_sim + 
                               0.2 * centroid_sim +
                               0.1 * rolloff_sim +
+                              0.1 * harmonic_percussive_sim +
                               0.2 * hash_sim)
             
             return max(0, min(1, similarity_score))  # Ensure score is between 0 and 1

@@ -60,7 +60,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             if len(file_paths) == 1:
                 self.current_file =  file_paths[0]
                 self.first_file = self.current_file
+                self.second_file = None
                 if self.database_folder:
+                    print("go to find")
                     self.find_similar_songs()
             elif len(file_paths) == 2:
                 self.first_file= file_paths[0]
@@ -68,6 +70,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 self.mix_files(self.first_file, self.second_file)
                 self.mix_button.clicked.connect(lambda: self.mix_files(self.first_file, self.second_file))
                 if self.database_folder:
+                    print("go to find22222")
                     self.find_similar_songs()
             
         
@@ -190,10 +193,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.played_sound = None
             self.paused_sound = None
             self.player.stop()
+            self.find_similar_songs()
             self.player = QMediaPlayer()
             self.play_sound("loaded_file")
         
-        self.find_similar_songs()    
+            
 
 
     def play_sound(self, button):
