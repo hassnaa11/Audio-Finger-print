@@ -37,7 +37,7 @@ class AudioFingerprint:
         features['chroma_mean'] = np.mean(chromagram, axis=1).tolist()
         
         # 7. Extract harmonic and percussive components
-        y_harmonic, y_percussive = librosa.effects.hpss(audio_data)
+        y_harmonic, y_percussive = librosa.effects.hpss(audio_data) # Harmonic-Percussive Source Separation
         features['harmonic_ratio'] = float(np.mean(np.abs(y_harmonic)) / np.mean(np.abs(audio_data)))
         features['percussive_ratio'] = float(np.mean(np.abs(y_percussive)) / np.mean(np.abs(audio_data)))
         

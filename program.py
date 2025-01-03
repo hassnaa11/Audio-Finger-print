@@ -193,10 +193,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.played_sound = None
             self.paused_sound = None
             self.player.stop()
-            self.find_similar_songs()
             self.player = QMediaPlayer()
-            self.play_sound("loaded_file")
+            
+        self.find_similar_songs()
         
+        if self.played_sound == "loaded_file":
+            self.play_sound("loaded_file")
             
 
 
