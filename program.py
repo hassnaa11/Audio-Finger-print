@@ -29,6 +29,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.database_folder = None
         
         self.match_songs = [None, None, None, None, None]
+        self.songs_fingerprint= [None,None,None,None]
         
         self.songs_labels = [self.first_song_label, self.second_song_label, self.third_song_label, self.fourth_song_label, self.fifth_song_label]
         self.songs_progress_bars = [self.first_progressBar, self.second_progressBar, self.third_progressBar, self.fourth_progressBar, self.fifth_progressBar]
@@ -48,35 +49,28 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.paused_sound = None
         
         self.fingerprinter = AudioFingerprint()
-        self.file_count = 0  # To track the number of files opened
-        self.previous_file = None
-        self.input2 = None
         
     
     def open_file(self):
-        file_path, _ = QFileDialog.getOpenFileName(
+        file_paths, _ = QFileDialog.getOpenFileNames(
             self, "Select Query Audio", "", "Audio Files (*.mp3 *.wav)")
-        
-        if not file_path:
-            return
+        print("dkhlt")
 
-        self.file_count += 1
-        if self.file_count % 2 == 1:  # Odd number of files opened
-            self.current_file = file_path
-            self.previous_file = None  # Reset previous file since we're not mixing
-            print(f"Odd input: {self.current_file}")
-            if self.database_folder:
-                self.find_similar_songs()
-        else:  # Even number of files opened
-            self.input2 = self.current_file
-            self.previous_file = self.current_file  # Set the last opened file
-            self.current_file = file_path  # Update the current file
-            print(f"Even inputs: Mixing {self.previous_file} and {self.current_file}")
-            self.input2 = self.current_file
-            if self.previous_file and self.current_file:
-                self.mix_files(self.previous_file, self.current_file)
-                self.mix_button.clicked.connect(lambda: self.mix_files(self.previous_file, self.current_file))
+        if  file_paths:  
+            if len(file_paths) == 1:
+                self.current_file =  file_paths[0]
+                self.first_file = self.current_file
+                self.second_file = None
                 if self.database_folder:
+                    print("go to find")
+                    self.find_similar_songs()
+            elif len(file_paths) == 2:
+                self.first_file= file_paths[0]
+                self.second_file  = file_paths[1]
+                self.mix_files(self.first_file, self.second_file)
+                self.mix_button.clicked.connect(lambda: self.mix_files(self.first_file, self.second_file))
+                if self.database_folder:
+                    print("go to find22222")
                     self.find_similar_songs()
     
     def select_folder(self):
@@ -84,9 +78,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self, "Select Database Directory")
         if dir_path:
             self.database_folder = dir_path
-            if self.current_file:
-                self.find_similar_songs() 
-                
+            self.extract_finger_print()
+            
+            
+    def extract_finger_print(self):
+        songs = [f for f in os.listdir(self.database_folder)
+                if f.lower().endswith(('.mp3', '.wav'))]
+
+        for song in songs:
+            song_path = os.path.join(self.database_folder, song)
+            song_fingerprint = self.fingerprinter.generate_fingerprint(song_path)
+            if song_fingerprint:
+                # Include the song name in the fingerprint dictionary
+                song_fingerprint["name"] = song
+                self.songs_fingerprint.append(song_fingerprint)
+                    
                 
     def find_similar_songs(self):
         """Find similar songs to the query audio"""
@@ -98,34 +104,41 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             return
         
         # Get list of songs in database
-        songs = [f for f in os.listdir(self.database_folder) 
-                if f.lower().endswith(('.mp3', '.wav'))]
+        # songs = [f for f in os.listdir(self.database_folder) 
+        #         if f.lower().endswith(('.mp3', '.wav'))]
         
+        # similarities = []
+        # for i, song in enumerate(songs):
+        #     song_path = os.path.join(self.database_folder, song)
+        #     song_fingerprint = self.fingerprinter.generate_fingerprint(song_path)
+        #     if song_fingerprint:
+        #         similarity = self.fingerprinter.compute_similarity(
+        #             query_fingerprint, song_fingerprint)
+        #         similarities.append((song, similarity))
         similarities = []
-        for i, song in enumerate(songs):
-            song_path = os.path.join(self.database_folder, song)
-            song_fingerprint = self.fingerprinter.generate_fingerprint(song_path)
-            if song_fingerprint:
+        for song in self.songs_fingerprint:
+            if song:
                 similarity = self.fingerprinter.compute_similarity(
-                    query_fingerprint, song_fingerprint)
+                query_fingerprint, song)
                 similarities.append((song, similarity))
-        
         # Sort by similarity
         similarities.sort(key=lambda x: x[1], reverse=True)
-        print("similarities: ", similarities)
-        
-        for i, (song, similarity) in enumerate(similarities):
-            self.match_songs[i] = song
-            print("i = ", i, "song: ", song, "similarity: ", similarity)
-            self.songs_labels[i].setText(song) 
+        for i, (song_fingerprint, similarity) in enumerate(similarities):
+            if i >= len(self.songs_labels):
+                break 
+            song_name = song_fingerprint.get("name", "Unknown Song")
+            self.match_songs[i] = song_name
+            print(f"i = {i}, song: {song_name}, similarity: {similarity}")
+            self.songs_labels[i].setText(song_name)
             self.songs_progress_bars[i].setValue(int(similarity * 100))
-            if i == 4:
+            if i == 4:  
                 break
-            
+                
     def mix_files(self, file1, file2):
         # Read the two wav files
         rate1, data1 = wavfile.read(file1)
         rate2, data2 = wavfile.read(file2)
+        print("rate: ", rate1,"  rate2: ", rate2) 
 
         # Ensure the sampling rates match
         if rate1 != rate2:
@@ -180,7 +193,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.paused_sound = None
             self.player.stop()
             self.player = QMediaPlayer()
+            
+        self.find_similar_songs()
+        
+        if self.played_sound == "loaded_file":
             self.play_sound("loaded_file")
+            
 
 
     def play_sound(self, button):
@@ -207,12 +225,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             
         elif button == "input1_sound":
             self.player.stop()
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.previous_file)))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.first_file)))
             self.player.play()    
             
         elif button == "input2_sound":
             self.player.stop()
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.input2)))
+            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.second_file)))
             self.player.play()     
             
         elif self.match_songs[button]:
