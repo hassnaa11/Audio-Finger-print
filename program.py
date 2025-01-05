@@ -129,6 +129,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Ensure the sampling rates match
         if rate1 != rate2:
+            data2 = librosa.resample(data2,orig_sr = rate2, target_sr = rate1)
             rate1 = min(rate1, rate2)
             # raise ValueError("Sampling rates of the two .wav files must match")
 
